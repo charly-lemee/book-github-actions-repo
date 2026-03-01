@@ -7,8 +7,8 @@ jobs:
     strategy:
       matrix:
         dotnet:
-          - 4.2.x
-          - 5.0.x
+          - 5.0.17
+          - 10.0.3
         buildMode:
           - Debug
           - Release
@@ -28,5 +28,6 @@ jobs:
 
        - name: Build
          run: dotnet build --no-restore --configuration ${{ env.buildMode }}
-         env: ${{ matrix.buildMode }}
+         env:
+           buildMode: ${{ matrix.buildMode }}
 
