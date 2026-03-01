@@ -6,9 +6,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: 'node:current'
 
     steps:
       - uses: actions/checkout@v6
       - run: |
+          node --version
           npm install
           npm run build    
