@@ -1,4 +1,4 @@
-name: My first workflow # le nom de mon choix
+name: my first workflow 2 # le nom de mon choix
 on:
   push:
     branches: [ main ]
@@ -24,4 +24,4 @@ jobs:
       with:
         name: MyPackage
         path: dest
-         
+

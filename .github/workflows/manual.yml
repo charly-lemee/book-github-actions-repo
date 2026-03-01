@@ -1,4 +1,4 @@
-name: my fist manual workflow with params
+name: my first manual workflow with params
 on:
   workflow_dispatch:
     inputs:
