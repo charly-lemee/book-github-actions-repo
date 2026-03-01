@@ -1,0 +1,32 @@
+name: "matrices - exercice 1"
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        dotnet:
+          - 4.2.x
+          - 5.0.x
+        buildMode:
+          - Debug
+          - Release
+    runs-on: windows-latest
+
+    steps:
+       - name: Récupère le code source
+         uses: actions/checkout@v6
+
+       - name: Install .NET
+         uses: actions/setup-dotnet@v5.1.0
+         with:
+           dotnet-version: ${{ matrix.dotnet }}
+
+       - name: Restore dependencies
+         run: dotnet restore
+
+       - name: Build
+         run: dotnet build --no-restore --configuration ${{ env.buildMode }}
+         env: ${{ matrix.buildMode }}
+
