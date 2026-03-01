@@ -17,6 +17,8 @@ jobs:
     steps:
        - name: Récupère le code source
          uses: actions/checkout@v6
+         with:
+           fetch-depth: 0
 
        - name: Install .NET
          uses: actions/setup-dotnet@v4
